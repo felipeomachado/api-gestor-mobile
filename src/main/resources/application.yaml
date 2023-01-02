@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://gestor:ucksfFZMUyQPNWYY@cluster0.mlcsjuk.mongodb.net/test
+      database: mobiledb

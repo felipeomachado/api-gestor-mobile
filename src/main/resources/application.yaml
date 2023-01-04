@@ -3,3 +3,6 @@ spring:
     mongodb:
       uri: mongodb+srv://gestor:ucksfFZMUyQPNWYY@cluster0.mlcsjuk.mongodb.net/test
       database: mobiledb
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

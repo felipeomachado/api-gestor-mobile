@@ -1,8 +1,13 @@
 spring:
-  data:
-    mongodb:
-      uri: mongodb+srv://gestor:ucksfFZMUyQPNWYY@cluster0.mlcsjuk.mongodb.net/test
-      database: mobiledb
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/gestor_mobile
+    username: ${MYSQL_USER:gestor}
+    password: ${MYSQL_PASSWORD:gestor}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+

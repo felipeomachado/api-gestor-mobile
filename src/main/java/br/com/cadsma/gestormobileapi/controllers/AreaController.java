@@ -1,5 +1,6 @@
 package br.com.cadsma.gestormobileapi.controllers;
 
+
 import br.com.cadsma.gestormobileapi.entities.Area;
 import br.com.cadsma.gestormobileapi.repositories.AreaRepository;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,12 @@ public class AreaController {
 
     public AreaController(AreaRepository areaRepository) {
         this.areaRepository = areaRepository;
+    }
+
+    @GetMapping(value = "/test")
+    public String test() {
+        // areaRepository.save(area);
+        return "OK";
     }
 
     @PostMapping

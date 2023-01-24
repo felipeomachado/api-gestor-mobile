@@ -2,7 +2,7 @@ package br.com.cadsma.gestormobileapi.entities.pks;
 
 import java.io.Serializable;
 
-public class AreaId {
+public class AreaId implements Serializable{
     private int codigoEmpresa;
     private int codigo;
 

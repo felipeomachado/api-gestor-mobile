@@ -1,21 +1,20 @@
 package br.com.cadsma.gestormobileapi.entities;
 
-import br.com.cadsma.gestormobileapi.entities.pks.AreaPk;
+import br.com.cadsma.gestormobileapi.entities.pks.FornecedorPk;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
-
 @Entity
-@IdClass(AreaPk.class)
-public class Area {
+@IdClass(FornecedorPk.class)
+public class Fornecedor {
     @Id
     private int codigoEmpresa;
     @Id
     private int codigo;
-    private String nome;
-    private int codigoGerente;
+    private String razaoSocial;
+    private String nomeFantasia;
     private int situacao;
     private int excluido;
 
@@ -35,20 +34,20 @@ public class Area {
         this.codigo = codigo;
     }
 
-    public String getNome() {
-        return nome;
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
     }
 
-    public int getCodigoGerente() {
-        return codigoGerente;
+    public String getNomeFantasia() {
+        return nomeFantasia;
     }
 
-    public void setCodigoGerente(int codigoGerente) {
-        this.codigoGerente = codigoGerente;
+    public void setNomeFantasia(String nomeFantasia) {
+        this.nomeFantasia = nomeFantasia;
     }
 
     public int getSituacao() {

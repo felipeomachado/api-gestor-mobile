@@ -1,23 +1,23 @@
 package br.com.cadsma.gestormobileapi.entities;
 
-import br.com.cadsma.gestormobileapi.entities.pks.AreaPk;
+import br.com.cadsma.gestormobileapi.entities.pks.FormaPagamentoPk;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
-
 @Entity
-@IdClass(AreaPk.class)
-public class Area {
+@IdClass(FormaPagamentoPk.class)
+public class FormaPagamento {
     @Id
     private int codigoEmpresa;
     @Id
     private int codigo;
     private String nome;
-    private int codigoGerente;
     private int situacao;
-    private int excluido;
+    private int codigoPrazo;
+    private boolean travar;
+    private int tipo;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -43,14 +43,6 @@ public class Area {
         this.nome = nome;
     }
 
-    public int getCodigoGerente() {
-        return codigoGerente;
-    }
-
-    public void setCodigoGerente(int codigoGerente) {
-        this.codigoGerente = codigoGerente;
-    }
-
     public int getSituacao() {
         return situacao;
     }
@@ -59,11 +51,27 @@ public class Area {
         this.situacao = situacao;
     }
 
-    public int getExcluido() {
-        return excluido;
+    public int getCodigoPrazo() {
+        return codigoPrazo;
     }
 
-    public void setExcluido(int excluido) {
-        this.excluido = excluido;
+    public void setCodigoPrazo(int codigoPrazo) {
+        this.codigoPrazo = codigoPrazo;
+    }
+
+    public boolean isTravar() {
+        return travar;
+    }
+
+    public void setTravar(boolean travar) {
+        this.travar = travar;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 }

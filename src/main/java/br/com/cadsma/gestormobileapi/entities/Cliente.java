@@ -1,7 +1,9 @@
 package br.com.cadsma.gestormobileapi.entities;
 
 import br.com.cadsma.gestormobileapi.entities.pks.ClientePk;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -11,43 +13,161 @@ import java.math.BigDecimal;
 @IdClass(ClientePk.class)
 public class Cliente {
     @Id
+    @Column(name = "EMPRESA_CODIGO", nullable = false)
+    @JsonProperty("EMPRESA_CODIGO")
     private int codigoEmpresa;
+
     @Id
+    @Column(name = "CODIGO", nullable = false)
+    @JsonProperty("CODIGO")
     private int codigo;
+
+    @Column(name = "RAZAO_SOCIAL", length = 150)
+    @JsonProperty("RAZAO_SOCIAL")
     private String razaoSocial;
+
+    @Column(name = "NOME_FANTASIA", length = 100)
+    @JsonProperty("NOME_FANTASIA")
     private String nomeFantasia;
+
+    @Column(name = "ENDERECO", length = 100)
+    @JsonProperty("ENDERECO")
     private String endereco;
+
+    @Column(name = "BAIRRO", length = 30)
+    @JsonProperty("BAIRRO")
     private String bairro;
+
+    @Column(name = "CD_CIDADE")
+    @JsonProperty("CD_CIDADE")
     private int codigoCidade;
+
+    @Column(name = "CIDADE", length = 100)
+    @JsonProperty("CIDADE")
     private String cidade;
+
+    @Column(name = "UF", length = 2)
+    @JsonProperty("UF")
     private String uf;
+
+    @Column(name = "CEP", length = 10)
+    @JsonProperty("CEP")
     private String cep;
-    private String pontoReferencia;
+
+    @Column(name = "CATEGORIA", length = 1, nullable = false)
+    @JsonProperty("CATEGORIA")
     private String categoria;
+
+    @Column(name = "CNPJ", length = 18)
+    @JsonProperty("CNPJ")
     private String cnpj;
+
+    @Column(name = "IE", length = 20)
+    @JsonProperty("IE")
     private String ie;
+
+    @Column(name = "CONTATO", length = 100)
+    @JsonProperty("CONTATO")
     private String contato;
+
+    @Column(name = "TELEFONE1", length = 15)
+    @JsonProperty("TELEFONE1")
     private String telefone1;
+
+    @Column(name = "TELEFONE2", length = 15)
+    @JsonProperty("TELEFONE2")
     private String telefone2;
+
+    @Column(name = "FAX", length = 15)
+    @JsonProperty("FAX")
     private String fax;
+
+    @Column(name = "EMAIL", length = 100)
+    @JsonProperty("EMAIL")
     private String email;
+
+    @Column(name = "TABELA")
+    @JsonProperty("TABELA")
     private int tabela;
+
+    @Column(name = "LIMITE", scale = 2, precision = 15)
+    @JsonProperty("LIMITE")
     private BigDecimal limite;
+
+    @Column(name = "VISITA")
+    @JsonProperty("VISITA")
     private int visita;
+
+    @Column(name = "ROTA")
+    @JsonProperty("ROTA")
     private int rota;
+
+    @Column(name = "INTINERARIO")
+    @JsonProperty("INTINERARIO")
     private int itinerario;
+
+    @Column(name = "TIPO", length = 1)
+    @JsonProperty("TIPO")
     private String tipo;
+
+    @Column(name = "STATUS")
+    @JsonProperty("STATUS")
     private int status;
+
+    @Column(name = "FORMA_PAGAMENTO")
+    @JsonProperty("FORMA_PAGAMENTO")
     private int codigoFormaPagamento;
+
+    @Column(name = "PRAZO")
+    @JsonProperty("PRAZO")
     private int codigoPrazo;
+
+    @Column(name = "LATITUDE", length = 100)
+    @JsonProperty("LATITUDE")
     private String latitude;
+
+    @Column(name = "LONGITUDE", length = 100)
+    @JsonProperty("LONGITUDE")
     private String longitude;
-    private int situacao;
+
+    @Column(name = "DATA_NASCIMENTO", length = 15)
+    @JsonProperty("DATA_NASCIMENTO")
+    private String dataNascimento;
+
+    @Column(name = "SITUACAO")
+    @JsonProperty("SITUACAO")
+    private int situacao = 0;
+
+    @Column(name = "EXCLUIDO")
+    @JsonProperty("EXCLUIDO")
     private int excluido;
-    private int giro;
+
+    @Column(name = "SINCRONIZADO")
+    @JsonProperty("SINCRONIZADO")
+    private int sincronizado = 0;
+
+    @Column(name = "CLI_GIRO", nullable = false)
+    @JsonProperty("CLI_GIRO")
+    private int giro = 3;
+
+    @Column(name = "PONTO_REFERENCIA", length = 60)
+    @JsonProperty("PONTO_REFERENCIA")
+    private String pontoReferencia;
+
+    @Column(name = "DATA_ULT_COMPRA", length = 11)
+    @JsonProperty("DATA_ULT_COMPRA")
     private String dataUltimaCompra;
+
+    @Column(name = "CODIGO_SEGMENTO", nullable = false)
+    @JsonProperty("CODIGO_SEGMENTO")
     private int codigoSegmento;
+
+    @Column(name = "SEGMENTO", length = 50)
+    @JsonProperty("SEGMENTO")
     private String segmento;
+
+    @Column(name = "DESCONTO_PADRAO", scale = 2, precision = 6, nullable = false)
+    @JsonProperty("DESCONTO_PADRAO")
     private BigDecimal descontoPadrao;
 
     public int getCodigoEmpresa() {
@@ -344,5 +464,21 @@ public class Cliente {
 
     public void setDescontoPadrao(BigDecimal descontoPadrao) {
         this.descontoPadrao = descontoPadrao;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public int getSincronizado() {
+        return sincronizado;
+    }
+
+    public void setSincronizado(int sincronizado) {
+        this.sincronizado = sincronizado;
     }
 }

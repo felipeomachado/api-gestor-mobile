@@ -12,4 +12,5 @@ import javax.transaction.Transactional;
 @Transactional
 @EnableTransactionManagement
 public interface ClienteRepository extends JpaRepository<Cliente, ClientePk> {
+    void deleteAllByCodigoEmpresa(int codigoEmpresa);
 }

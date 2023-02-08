@@ -1,6 +1,7 @@
 package br.com.cadsma.gestormobileapi.entities.pks;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class ClienteRcaPk implements Serializable {
     private int codigoEmpresa;
@@ -29,5 +30,18 @@ public class ClienteRcaPk implements Serializable {
 
     public void setCodigoCliente(int codigoCliente) {
         this.codigoCliente = codigoCliente;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClienteRcaPk that = (ClienteRcaPk) o;
+        return codigoEmpresa == that.codigoEmpresa && codigoRca == that.codigoRca && codigoCliente == that.codigoCliente;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigoEmpresa, codigoRca, codigoCliente);
     }
 }

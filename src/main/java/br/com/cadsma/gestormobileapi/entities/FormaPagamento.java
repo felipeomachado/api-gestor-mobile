@@ -1,7 +1,9 @@
 package br.com.cadsma.gestormobileapi.entities;
 
 import br.com.cadsma.gestormobileapi.entities.pks.FormaPagamentoPk;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -10,13 +12,33 @@ import javax.persistence.IdClass;
 @IdClass(FormaPagamentoPk.class)
 public class FormaPagamento {
     @Id
+    @Column(name = "EMPRESA_CODIGO", nullable = false)
+    @JsonProperty("EMPRESA_CODIGO")
     private int codigoEmpresa;
+
     @Id
+    @Column(name = "CODIGO", nullable = false)
+    @JsonProperty("CODIGO")
     private int codigo;
+
+    @Column(name = "NOME", nullable = false)
+    @JsonProperty("NOME")
     private String nome;
+
+    @Column(name = "SITUACAO", nullable = false)
+    @JsonProperty("SITUACAO")
     private int situacao;
+
+    @Column(name = "PRAZO", nullable = false)
+    @JsonProperty("PRAZO")
     private int codigoPrazo;
+
+    @Column(name = "TRAVAR", nullable = false)
+    @JsonProperty("TRAVAR")
     private boolean travar;
+
+    @Column(name = "TIPO", nullable = false)
+    @JsonProperty("TIPO")
     private int tipo;
 
     public int getCodigoEmpresa() {

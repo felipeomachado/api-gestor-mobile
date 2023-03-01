@@ -1,7 +1,9 @@
 package br.com.cadsma.gestormobileapi.entities;
 
 import br.com.cadsma.gestormobileapi.entities.pks.SetorPk;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -10,13 +12,33 @@ import javax.persistence.IdClass;
 @IdClass(SetorPk.class)
 public class Setor {
     @Id
+    @Column(name = "EMPRESA_CODIGO", nullable = false)
+    @JsonProperty("EMPRESA_CODIGO")
     private int codigoEmpresa;
+
     @Id
+    @Column(name = "CODIGO", nullable = false)
+    @JsonProperty("CODIGO")
     private int codigo;
+
+    @Column(name = "NOME", nullable = false)
+    @JsonProperty("NOME")
     private String nome;
+
+    @Column(name = "AREA", nullable = false)
+    @JsonProperty("AREA")
     private int codigoArea;
+
+    @Column(name = "SUPERVISOR", nullable = false)
+    @JsonProperty("SUPERVISOR")
     private int codigoSupervisor;
+
+    @Column(name = "SITUACAO", nullable = false)
+    @JsonProperty("SITUACAO")
     private int situacao;
+
+    @Column(name = "EXCLUIDO", nullable = false)
+    @JsonProperty("EXCLUIDO")
     private int excluido;
 
     public int getCodigoEmpresa() {

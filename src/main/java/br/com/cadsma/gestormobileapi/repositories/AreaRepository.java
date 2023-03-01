@@ -12,5 +12,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 @EnableTransactionManagement
-public interface AreaRepository extends JpaRepository<Area, AreaPk> {
+public interface AreaRepository extends MyJpaRepository<Area, AreaPk> {
 }

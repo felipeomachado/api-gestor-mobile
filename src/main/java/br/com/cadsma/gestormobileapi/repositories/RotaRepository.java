@@ -11,5 +11,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 @EnableTransactionManagement
-public interface RotaRepository extends JpaRepository<Rota, RotaPk> {
+public interface RotaRepository extends MyJpaRepository<Rota, RotaPk> {
 }

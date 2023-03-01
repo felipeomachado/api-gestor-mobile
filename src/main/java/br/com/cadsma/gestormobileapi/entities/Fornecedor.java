@@ -1,7 +1,9 @@
 package br.com.cadsma.gestormobileapi.entities;
 
 import br.com.cadsma.gestormobileapi.entities.pks.FornecedorPk;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -10,12 +12,29 @@ import javax.persistence.IdClass;
 @IdClass(FornecedorPk.class)
 public class Fornecedor {
     @Id
+    @Column(name = "EMPRESA_CODIGO", nullable = false)
+    @JsonProperty("EMPRESA_CODIGO")
     private int codigoEmpresa;
+
     @Id
+    @Column(name = "CODIGO", nullable = false)
+    @JsonProperty("CODIGO")
     private int codigo;
+
+    @Column(name = "NOME", nullable = false)
+    @JsonProperty("NOME")
     private String razaoSocial;
+
+    @Column(name = "FANTASIA", nullable = false)
+    @JsonProperty("FANTASIA")
     private String nomeFantasia;
+
+    @Column(name = "SITUACAO", nullable = false)
+    @JsonProperty("SITUACAO")
     private int situacao;
+
+    @Column(name = "EXCLUIDO", nullable = false)
+    @JsonProperty("EXCLUIDO")
     private int excluido;
 
     public int getCodigoEmpresa() {

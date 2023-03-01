@@ -11,5 +11,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 @EnableTransactionManagement
-public interface SetorRepository extends JpaRepository<Setor, SetorPk> {
+public interface SetorRepository extends MyJpaRepository<Setor, SetorPk> {
 }

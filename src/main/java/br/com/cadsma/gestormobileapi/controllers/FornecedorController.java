@@ -2,6 +2,8 @@ package br.com.cadsma.gestormobileapi.controllers;
 
 import br.com.cadsma.gestormobileapi.entities.Fornecedor;
 import br.com.cadsma.gestormobileapi.repositories.FornecedorRepository;
+import br.com.cadsma.gestormobileapi.services.InserirFornecedorService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,19 +12,15 @@ import java.util.List;
 @RequestMapping(value = "/v1/fornecedor")
 public class FornecedorController {
 
-    private final FornecedorRepository fornecedorRepository;
+    private final InserirFornecedorService service;
 
-    public FornecedorController(FornecedorRepository fornecedorRepository) {
-        this.fornecedorRepository = fornecedorRepository;
-    }
-
-    @GetMapping
-    public List<Fornecedor> listFornecedores() {
-        return fornecedorRepository.findAll();
+    public FornecedorController(InserirFornecedorService service) {
+        this.service = service;
     }
 
     @PostMapping
-    public void insertFornecedores(@RequestBody List<Fornecedor> fornecedorList) {
-        fornecedorRepository.saveAll(fornecedorList);
+    @ResponseStatus(value = HttpStatus.CREATED)
+    public void inserir(@RequestBody List<Fornecedor> request) {
+        service.execute(request);
     }
 }

@@ -1,7 +1,9 @@
 package br.com.cadsma.gestormobileapi.entities;
 
 import br.com.cadsma.gestormobileapi.entities.pks.PrazoPk;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -10,14 +12,38 @@ import javax.persistence.IdClass;
 @IdClass(PrazoPk.class)
 public class Prazo {
     @Id
+    @Column(name = "EMPRESA_CODIGO", nullable = false)
+    @JsonProperty("EMPRESA_CODIGO")
     private int codigoEmpresa;
+
     @Id
+    @Column(name = "CODIGO", nullable = false)
+    @JsonProperty("CODIGO")
     private int codigo;
+
+    @Column(name = "NOME", nullable = false)
+    @JsonProperty("NOME")
     private String nome;
+
+    @Column(name = "TABELA", nullable = false)
+    @JsonProperty("TABELA")
     private int tabela;
+
+    @Column(name = "ORDEM", nullable = false)
+    @JsonProperty("ORDEM")
     private int ordem;
+
+    @Column(name = "DIAS", nullable = false)
+    @JsonProperty("DIAS")
     private int dias;
+
+    @Column(name = "DIAS2", nullable = false)
+    @JsonProperty("DIAS2")
     private int dias2;
+
+    @Column(name = "PARCELAS", nullable = false)
+    @JsonProperty("PARCELAS")
+    private int parcelas;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -73,5 +99,13 @@ public class Prazo {
 
     public void setDias2(int dias2) {
         this.dias2 = dias2;
+    }
+
+    public int getParcelas() {
+        return parcelas;
+    }
+
+    public void setParcelas(int parcelas) {
+        this.parcelas = parcelas;
     }
 }

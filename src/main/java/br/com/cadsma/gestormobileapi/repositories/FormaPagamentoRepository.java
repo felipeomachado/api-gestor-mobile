@@ -11,5 +11,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 @EnableTransactionManagement
-public interface FormaPagamentoRepository extends JpaRepository<FormaPagamento, FormaPagamentoPk> {
+public interface FormaPagamentoRepository extends MyJpaRepository<FormaPagamento, FormaPagamentoPk> {
 }

@@ -1,6 +1,7 @@
 package br.com.cadsma.gestormobileapi.entities.pks;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class MetaPk implements Serializable {
     private int codigoEmpresa;
@@ -38,5 +39,18 @@ public class MetaPk implements Serializable {
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MetaPk metaPk = (MetaPk) o;
+        return codigoEmpresa == metaPk.codigoEmpresa && codigo == metaPk.codigo && anoBase == metaPk.anoBase && tipo == metaPk.tipo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigoEmpresa, codigo, anoBase, tipo);
     }
 }

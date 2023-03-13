@@ -7,10 +7,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Repository
 @Transactional
 @EnableTransactionManagement
 public interface AreaRepository extends MyJpaRepository<Area, AreaPk> {
+    List<Area> findAllByCodigoEmpresaAndSituacaoAndExcluido(int codigoEmpresa, int situacao, int excluido);
 }

@@ -2,6 +2,7 @@ package br.com.cadsma.gestormobileapi.entities;
 
 import br.com.cadsma.gestormobileapi.entities.pks.AreaPk;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,27 +16,33 @@ public class Area {
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")
+    @ApiModelProperty(example = "2", required = true)
     private int codigoEmpresa;
 
     @Id
     @Column(name = "CODIGO", nullable = false)
     @JsonProperty("CODIGO")
+    @ApiModelProperty(example = "1", required = true)
     private int codigo;
 
     @Column(name = "NOME", nullable = false)
     @JsonProperty("NOME")
+    @ApiModelProperty(example = "Area 1", required = true)
     private String nome;
 
     @Column(name = "GERENTE", nullable = false)
     @JsonProperty("GERENTE")
+    @ApiModelProperty(example = "1", required = true)
     private int codigoGerente;
 
     @Column(name = "SITUACAO", nullable = false)
     @JsonProperty("SITUACAO")
+    @ApiModelProperty(example = "1", required = true)
     private int situacao;
 
     @Column(name = "EXCLUIDO", nullable = false)
     @JsonProperty("EXCLUIDO")
+    @ApiModelProperty(example = "0", required = true)
     private int excluido;
 
     public int getCodigoEmpresa() {

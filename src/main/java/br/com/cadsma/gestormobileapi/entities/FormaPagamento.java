@@ -2,6 +2,7 @@ package br.com.cadsma.gestormobileapi.entities;
 
 import br.com.cadsma.gestormobileapi.entities.pks.FormaPagamentoPk;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,6 +41,11 @@ public class FormaPagamento {
     @Column(name = "TIPO", nullable = false)
     @JsonProperty("TIPO")
     private int tipo;
+
+    @Column(name = "EXCLUIDO", nullable = false)
+    @JsonProperty("EXCLUIDO")
+    @ApiModelProperty(example = "0", required = true)
+    private int excluido;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -95,5 +101,13 @@ public class FormaPagamento {
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
+    }
+
+    public int getExcluido() {
+        return excluido;
+    }
+
+    public void setExcluido(int excluido) {
+        this.excluido = excluido;
     }
 }

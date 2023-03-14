@@ -2,6 +2,7 @@ package br.com.cadsma.gestormobileapi.entities;
 
 import br.com.cadsma.gestormobileapi.entities.pks.AreaPk;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Column;
@@ -25,7 +26,7 @@ public class Area {
     @ApiModelProperty(example = "1", required = true)
     private int codigo;
 
-    @Column(name = "NOME", nullable = false)
+    @Column(name = "NOME", nullable = false, length = 50)
     @JsonProperty("NOME")
     @ApiModelProperty(example = "Area 1", required = true)
     private String nome;
@@ -34,16 +35,6 @@ public class Area {
     @JsonProperty("GERENTE")
     @ApiModelProperty(example = "1", required = true)
     private int codigoGerente;
-
-    @Column(name = "SITUACAO", nullable = false)
-    @JsonProperty("SITUACAO")
-    @ApiModelProperty(example = "1", required = true)
-    private int situacao;
-
-    @Column(name = "EXCLUIDO", nullable = false)
-    @JsonProperty("EXCLUIDO")
-    @ApiModelProperty(example = "0", required = true)
-    private int excluido;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -75,21 +66,5 @@ public class Area {
 
     public void setCodigoGerente(int codigoGerente) {
         this.codigoGerente = codigoGerente;
-    }
-
-    public int getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(int situacao) {
-        this.situacao = situacao;
-    }
-
-    public int getExcluido() {
-        return excluido;
-    }
-
-    public void setExcluido(int excluido) {
-        this.excluido = excluido;
     }
 }

@@ -1,8 +1,6 @@
 package br.com.cadsma.gestormobileapi.services;
 
 import br.com.cadsma.gestormobileapi.entities.Area;
-import br.com.cadsma.gestormobileapi.enums.ExclusaoEnum;
-import br.com.cadsma.gestormobileapi.enums.SituacaoEnum;
 import br.com.cadsma.gestormobileapi.repositories.AreaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,8 +33,7 @@ public class AreaService {
 
     public List<Area> recuperar(int codigoEmpresa) {
         try {
-            return repository.findAllByCodigoEmpresaAndSituacaoAndExcluido(codigoEmpresa,
-                    SituacaoEnum.ATIVO.getCodigo(), ExclusaoEnum.NAO_EXCLUIDO.getCodigo());
+            return repository.findAllByCodigoEmpresa(codigoEmpresa);
         }catch (Exception ex) {
             logger.error("AreaService >> recuperar >> {}", ex.getMessage());
             throw ex;

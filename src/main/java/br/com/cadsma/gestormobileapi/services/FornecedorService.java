@@ -10,24 +10,32 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class InserirFornecedorService {
-    private static final Logger logger = LoggerFactory.getLogger(InserirFornecedorService.class);
+public class FornecedorService {
+    private static final Logger logger = LoggerFactory.getLogger(FornecedorService.class);
 
     private final FornecedorRepository repository;
 
-    public InserirFornecedorService(FornecedorRepository repository) {
+    public FornecedorService(FornecedorRepository repository) {
         this.repository = repository;
     }
 
     @Transactional
-    public void execute(List<Fornecedor> list) {
+    public void inserir(List<Fornecedor> list) {
         try {
             if(list != null && list.size() > 0) {
-                this.repository.deleteAllByCodigoEmpresa(list.get(0).getCodigoEmpresa());
                 this.repository.saveAll(list);
             }
         }catch (Exception ex) {
-            logger.error("InserirFornecedorService >> execute >> {}", ex.getMessage());
+            logger.error("FornecedorService >> inserir >> {}", ex.getMessage());
+            throw ex;
+        }
+    }
+
+    public List<Fornecedor> recuperar(int codigoEmpresa) {
+        try {
+            return repository.findAllByCodigoEmpresa(codigoEmpresa);
+        }catch (Exception ex) {
+            logger.error("FornecedorService >> recuperar >> {}", ex.getMessage());
             throw ex;
         }
     }

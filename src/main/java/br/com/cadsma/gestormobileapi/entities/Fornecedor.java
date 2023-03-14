@@ -21,21 +21,13 @@ public class Fornecedor {
     @JsonProperty("CODIGO")
     private int codigo;
 
-    @Column(name = "NOME", nullable = false)
+    @Column(name = "NOME", nullable = false, length = 100)
     @JsonProperty("NOME")
     private String razaoSocial;
 
-    @Column(name = "FANTASIA", nullable = false)
+    @Column(name = "FANTASIA", length = 100)
     @JsonProperty("FANTASIA")
     private String nomeFantasia;
-
-    @Column(name = "SITUACAO", nullable = false)
-    @JsonProperty("SITUACAO")
-    private int situacao;
-
-    @Column(name = "EXCLUIDO", nullable = false)
-    @JsonProperty("EXCLUIDO")
-    private int excluido;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -67,21 +59,5 @@ public class Fornecedor {
 
     public void setNomeFantasia(String nomeFantasia) {
         this.nomeFantasia = nomeFantasia;
-    }
-
-    public int getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(int situacao) {
-        this.situacao = situacao;
-    }
-
-    public int getExcluido() {
-        return excluido;
-    }
-
-    public void setExcluido(int excluido) {
-        this.excluido = excluido;
     }
 }

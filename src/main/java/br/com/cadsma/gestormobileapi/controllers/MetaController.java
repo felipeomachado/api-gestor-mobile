@@ -1,8 +1,6 @@
 package br.com.cadsma.gestormobileapi.controllers;
 
-import br.com.cadsma.gestormobileapi.entities.Grupo;
 import br.com.cadsma.gestormobileapi.entities.Meta;
-import br.com.cadsma.gestormobileapi.services.InserirGrupoService;
 import br.com.cadsma.gestormobileapi.services.InserirMetaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

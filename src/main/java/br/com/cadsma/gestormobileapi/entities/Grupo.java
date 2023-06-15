@@ -8,9 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
-@Entity
+@Entity(name = Grupo.ENTITY_NAME)
 @IdClass(GrupoPk.class)
 public class Grupo {
+    public static final String ENTITY_NAME = "GRUPO";
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")

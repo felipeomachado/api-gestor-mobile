@@ -9,9 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import java.math.BigDecimal;
 
-@Entity
+@Entity(name = Cliente.ENTITY_NAME)
 @IdClass(ClientePk.class)
 public class Cliente {
+    public static final String ENTITY_NAME = "CLIENTE";
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")

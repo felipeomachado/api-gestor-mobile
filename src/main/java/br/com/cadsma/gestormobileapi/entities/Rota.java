@@ -9,9 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
-@Entity
+@Entity(name = Rota.ENTITY_NAME)
 @IdClass(RotaPk.class)
 public class Rota {
+    public static final String ENTITY_NAME = "ROTA";
+
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")
@@ -39,16 +41,6 @@ public class Rota {
     @JsonProperty("SETOR")
     @ApiModelProperty(example = "3", required = true)
     private int codigoSetor;
-
-    @Column(name = "SITUACAO", nullable = false)
-    @JsonProperty("SITUACAO")
-    @ApiModelProperty(example = "1", required = true)
-    private int situacao;
-
-    @Column(name = "EXCLUIDO", nullable = false)
-    @JsonProperty("EXCLUIDO")
-    @ApiModelProperty(example = "0", required = true)
-    private int excluido;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -88,21 +80,5 @@ public class Rota {
 
     public void setCodigoSetor(int codigoSetor) {
         this.codigoSetor = codigoSetor;
-    }
-
-    public int getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(int situacao) {
-        this.situacao = situacao;
-    }
-
-    public int getExcluido() {
-        return excluido;
-    }
-
-    public void setExcluido(int excluido) {
-        this.excluido = excluido;
     }
 }

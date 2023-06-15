@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import java.math.BigDecimal;
 
-@Entity
+@Entity(name = Produto.ENTITY_NAME)
 @IdClass(ProdutoPk.class)
 public class Produto {
+    public static final String ENTITY_NAME = "PRODUTO";
+
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")
@@ -22,63 +24,63 @@ public class Produto {
     @JsonProperty("CODIGO")
     private int codigo;
 
-    @Column(name = "MARCA", nullable = false)
+    @Column(name = "MARCA")
     @JsonProperty("MARCA")
     private String marca;
 
-    @Column(name = "NOME", nullable = false)
+    @Column(name = "NOME")
     @JsonProperty("NOME")
     private String nome;
 
-    @Column(name = "UNIDADE_VENDA", nullable = false)
+    @Column(name = "UNIDADE_VENDA")
     @JsonProperty("UNIDADE_VENDA")
     private String unidadeVenda;
 
-    @Column(name = "DESCONTO_MAXIMO", nullable = false)
+    @Column(name = "DESCONTO_MAXIMO")
     @JsonProperty("DESCONTO_MAXIMO")
     private BigDecimal descontoMaximo;
 
-    @Column(name = "FORNECEDOR", nullable = false)
+    @Column(name = "FORNECEDOR")
     @JsonProperty("FORNECEDOR")
     private int codigoFornecedor;
 
-    @Column(name = "PESO", nullable = false)
+    @Column(name = "PESO")
     @JsonProperty("PESO")
     private BigDecimal peso;
 
-    @Column(name = "PRECO_COMPRA", nullable = false)
+    @Column(name = "PRECO_COMPRA")
     @JsonProperty("PRECO_COMPRA")
     private BigDecimal precoCompra;
 
-    @Column(name = "PRECO_MINIMO_VENDA", nullable = false)
+    @Column(name = "PRECO_MINIMO_VENDA")
     @JsonProperty("PRECO_MINIMO_VENDA")
     private BigDecimal precoMinimoVenda;
 
-    @Column(name = "PRECO_VENDA", nullable = false)
+    @Column(name = "PRECO_VENDA")
     @JsonProperty("PRECO_VENDA")
     private BigDecimal precoVenda;
 
-    @Column(name = "PRECO_VENDA2", nullable = false)
+    @Column(name = "PRECO_VENDA2")
     @JsonProperty("PRECO_VENDA2")
     private BigDecimal precoVenda2;
 
-    @Column(name = "PRECO_VENDA3", nullable = false)
+    @Column(name = "PRECO_VENDA3")
     @JsonProperty("PRECO_VENDA3")
     private BigDecimal precoVenda3;
 
-    @Column(name = "PRECO_VENDA4", nullable = false)
+    @Column(name = "PRECO_VENDA4")
     @JsonProperty("PRECO_VENDA4")
     private BigDecimal precoVenda4;
 
-    @Column(name = "PRECO_VENDA5", nullable = false)
+    @Column(name = "PRECO_VENDA5")
     @JsonProperty("PRECO_VENDA5")
     private BigDecimal precoVenda5;
 
-    @Column(name = "PRECO_VENDA6", nullable = false)
+    @Column(name = "PRECO_VENDA6")
     @JsonProperty("PRECO_VENDA6")
     private BigDecimal precoVenda6;
 
-    @Column(name = "PRECO_VENDA7", nullable = false)
+    @Column(name = "PRECO_VENDA7")
     @JsonProperty("PRECO_VENDA7")
     private BigDecimal precoVenda7;
 
@@ -86,7 +88,7 @@ public class Produto {
     @JsonProperty("COD_TRIBUTACAO")
     private int codigoTributacao;
 
-    @Column(name = "PROMOCAO", nullable = false)
+    @Column(name = "PROMOCAO")
     @JsonProperty("PROMOCAO")
     private boolean promocao;
 
@@ -94,11 +96,11 @@ public class Produto {
     @JsonProperty("GRUPO")
     private int grupo;
 
-    @Column(name = "SALDO", nullable = false)
+    @Column(name = "SALDO")
     @JsonProperty("SALDO")
     private BigDecimal saldo;
 
-    @Column(name = "QTDE_EMBALAGEM", nullable = false)
+    @Column(name = "QTDE_EMBALAGEM")
     @JsonProperty("QTDE_EMBALAGEM")
     private int qtdEmbalagem;
 
@@ -106,23 +108,23 @@ public class Produto {
     @JsonProperty("QTD_ATACADO")
     private BigDecimal qtdAtacado;
 
-    @Column(name = "SITUACAO", nullable = false)
+    @Column(name = "SITUACAO")
     @JsonProperty("SITUACAO")
     private int situacao;
 
-    @Column(name = "EXCLUIDO", nullable = false)
+    @Column(name = "EXCLUIDO")
     @JsonProperty("EXCLUIDO")
     private int excluido;
 
-    @Column(name = "CODIGO_BARRAS", nullable = false)
+    @Column(name = "CODIGO_BARRAS")
     @JsonProperty("CODIGO_BARRAS")
     private String codigoBarras;
 
-    @Column(name = "FATOR", nullable = false)
+    @Column(name = "FATOR")
     @JsonProperty("FATOR")
     private BigDecimal fator;
 
-    @Column(name = "BALANCA", nullable = false)
+    @Column(name = "BALANCA")
     @JsonProperty("BALANCA")
     private boolean balanca;
 
@@ -130,15 +132,15 @@ public class Produto {
     @JsonProperty("CONSUMO")
     private int consumo;
 
-    @Column(name = "SECAO", nullable = false)
+    @Column(name = "SECAO")
     @JsonProperty("SECAO")
     private String secao;
 
-    @Column(name = "SUBSTANCIA", nullable = false)
+    @Column(name = "SUBSTANCIA")
     @JsonProperty("SUBSTANCIA")
     private String substancia;
 
-    @Column(name = "PRECO_CUSTO", nullable = false)
+    @Column(name = "PRECO_CUSTO")
     @JsonProperty("PRECO_CUSTO")
     private String precoCusto;
 

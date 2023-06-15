@@ -11,9 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 
-@Entity
+@Entity(name = Area.ENTITY_NAME)
 @IdClass(AreaPk.class)
 public class Area {
+    public static final String ENTITY_NAME = "AREA";
+
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")

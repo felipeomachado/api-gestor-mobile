@@ -7,10 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import java.math.BigDecimal;
 
-@Entity
+@Entity(name = Prazo.ENTITY_NAME)
 @IdClass(PrazoPk.class)
 public class Prazo {
+    public static final String ENTITY_NAME = "PRAZO";
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")
@@ -44,6 +46,10 @@ public class Prazo {
     @Column(name = "PARCELAS", nullable = false)
     @JsonProperty("PARCELAS")
     private int parcelas;
+
+    @Column(name = "PEDIDO_MINIMO", nullable = false)
+    @JsonProperty("PEDIDO_MINIMO")
+    private BigDecimal pedidoMinimo;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -107,5 +113,13 @@ public class Prazo {
 
     public void setParcelas(int parcelas) {
         this.parcelas = parcelas;
+    }
+
+    public BigDecimal getPedidoMinimo() {
+        return pedidoMinimo;
+    }
+
+    public void setPedidoMinimo(BigDecimal pedidoMinimo) {
+        this.pedidoMinimo = pedidoMinimo;
     }
 }

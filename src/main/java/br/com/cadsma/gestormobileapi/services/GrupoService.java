@@ -1,7 +1,8 @@
 package br.com.cadsma.gestormobileapi.services;
 
-import br.com.cadsma.gestormobileapi.entities.Fornecedor;
-import br.com.cadsma.gestormobileapi.repositories.FornecedorRepository;
+import br.com.cadsma.gestormobileapi.entities.Grupo;
+import br.com.cadsma.gestormobileapi.entities.Prazo;
+import br.com.cadsma.gestormobileapi.repositories.GrupoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -12,38 +13,38 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class FornecedorService {
-    private static final Logger logger = LoggerFactory.getLogger(FornecedorService.class);
+public class GrupoService {
+    private static final Logger logger = LoggerFactory.getLogger(GrupoService.class);
 
-    private final FornecedorRepository repository;
+    private final GrupoRepository repository;
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public FornecedorService(FornecedorRepository repository) {
+    public GrupoService(GrupoRepository repository) {
         this.repository = repository;
     }
 
     @Transactional
-    public void inserir(List<Fornecedor> list) {
+    public void inserir(List<Grupo> list) {
         try {
             if(list != null && !list.isEmpty()) {
-                repository.deleteAllByCodigoEmpresa(Fornecedor.ENTITY_NAME, list.get(0).getCodigoEmpresa(), entityManager);
+                repository.deleteAllByCodigoEmpresa(Grupo.ENTITY_NAME, list.get(0).getCodigoEmpresa(), entityManager);
 
                 for(var entity : list)
                     entityManager.persist(entity);
             }
         }catch (Exception ex) {
-            logger.error("FornecedorService >> inserir >> {}", ex.getMessage());
+            logger.error("GrupoService >> inserir >> {}", ex.getMessage());
             throw ex;
         }
     }
 
-    public List<Fornecedor> recuperar(int codigoEmpresa) {
+    public List<Grupo> recuperar(int codigoEmpresa) {
         try {
             return repository.findAllByCodigoEmpresa(codigoEmpresa);
         }catch (Exception ex) {
-            logger.error("FornecedorService >> recuperar >> {}", ex.getMessage());
+            logger.error("GrupoService >> recuperar >> {}", ex.getMessage());
             throw ex;
         }
     }

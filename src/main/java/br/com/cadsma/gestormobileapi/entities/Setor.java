@@ -9,9 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
-@Entity
+@Entity(name = Setor.ENTITY_NAME)
 @IdClass(SetorPk.class)
 public class Setor {
+    public static final String ENTITY_NAME = "SETOR";
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")
@@ -38,16 +39,6 @@ public class Setor {
     @JsonProperty("SUPERVISOR")
     @ApiModelProperty(example = "10", required = true)
     private int codigoSupervisor;
-
-    @Column(name = "SITUACAO", nullable = false)
-    @JsonProperty("SITUACAO")
-    @ApiModelProperty(example = "1", required = true)
-    private int situacao;
-
-    @Column(name = "EXCLUIDO", nullable = false)
-    @JsonProperty("EXCLUIDO")
-    @ApiModelProperty(example = "0", required = true)
-    private int excluido;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -87,21 +78,5 @@ public class Setor {
 
     public void setCodigoSupervisor(int codigoSupervisor) {
         this.codigoSupervisor = codigoSupervisor;
-    }
-
-    public int getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(int situacao) {
-        this.situacao = situacao;
-    }
-
-    public int getExcluido() {
-        return excluido;
-    }
-
-    public void setExcluido(int excluido) {
-        this.excluido = excluido;
     }
 }

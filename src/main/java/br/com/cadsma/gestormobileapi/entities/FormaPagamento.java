@@ -9,9 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
-@Entity
+@Entity(name=FormaPagamento.ENTITY_NAME)
 @IdClass(FormaPagamentoPk.class)
 public class FormaPagamento {
+    public static final String ENTITY_NAME = "FORMA_PAGAMENTO";
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")
@@ -41,11 +42,6 @@ public class FormaPagamento {
     @Column(name = "TIPO", nullable = false)
     @JsonProperty("TIPO")
     private int tipo;
-
-    @Column(name = "EXCLUIDO", nullable = false)
-    @JsonProperty("EXCLUIDO")
-    @ApiModelProperty(example = "0", required = true)
-    private int excluido;
 
     public int getCodigoEmpresa() {
         return codigoEmpresa;
@@ -101,13 +97,5 @@ public class FormaPagamento {
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
-    }
-
-    public int getExcluido() {
-        return excluido;
-    }
-
-    public void setExcluido(int excluido) {
-        this.excluido = excluido;
     }
 }

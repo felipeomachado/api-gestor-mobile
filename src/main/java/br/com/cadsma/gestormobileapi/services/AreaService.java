@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -15,6 +17,9 @@ public class AreaService {
 
     private final AreaRepository repository;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     public AreaService(AreaRepository repository) {
         this.repository = repository;
     }
@@ -22,8 +27,10 @@ public class AreaService {
     @Transactional
     public void inserir(List<Area> list) {
         try {
-            if(list != null && list.size() > 0) {
-                this.repository.saveAll(list);
+            if(list != null && !list.isEmpty()) {
+                repository.deleteAllByCodigoEmpresa(Area.ENTITY_NAME, list.get(0).getCodigoEmpresa(), entityManager);
+                for(var entity : list)
+                    entityManager.persist(entity);
             }
         }catch (Exception ex) {
             logger.error("AreaService >> inserir >> {}", ex.getMessage());

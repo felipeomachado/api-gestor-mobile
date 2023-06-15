@@ -12,5 +12,4 @@ import java.util.List;
 @Transactional
 @EnableTransactionManagement
 public interface RotaRepository extends MyJpaRepository<Rota, RotaPk> {
-    List<Rota> findAllByCodigoEmpresaAndSituacaoAndExcluido(int codigoEmpresa, int situacao, int excluido);
 }

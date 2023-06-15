@@ -1,8 +1,6 @@
 package br.com.cadsma.gestormobileapi.controllers;
 
-import br.com.cadsma.gestormobileapi.controllers.dto.request.ClienteRequest;
 import br.com.cadsma.gestormobileapi.controllers.dto.request.TituloRequest;
-import br.com.cadsma.gestormobileapi.services.InserirClienteService;
 import br.com.cadsma.gestormobileapi.services.InserirTituloService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

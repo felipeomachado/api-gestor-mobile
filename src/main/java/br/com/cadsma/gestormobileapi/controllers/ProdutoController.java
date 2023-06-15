@@ -1,35 +1,34 @@
 package br.com.cadsma.gestormobileapi.controllers;
 
 import br.com.cadsma.gestormobileapi.controllers.dto.request.ProdutoRequest;
-import br.com.cadsma.gestormobileapi.entities.ProdutoInfo;
-import br.com.cadsma.gestormobileapi.services.AtualizarProdutoService;
-import br.com.cadsma.gestormobileapi.services.InserirProdutoService;
+import br.com.cadsma.gestormobileapi.entities.ClienteRca;
+import br.com.cadsma.gestormobileapi.entities.Produto;
+import br.com.cadsma.gestormobileapi.services.ProdutoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1/produto")
+@RequestMapping(value = "/v1/produtos")
 public class ProdutoController {
 
-    private final InserirProdutoService service;
-    private final AtualizarProdutoService atualizarProdutoService;
+    private final ProdutoService service;
 
-    public ProdutoController(InserirProdutoService service, AtualizarProdutoService atualizarProdutoService) {
+    public ProdutoController(ProdutoService service) {
         this.service = service;
-        this.atualizarProdutoService = atualizarProdutoService;
     }
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
-    public void inserir(@RequestBody ProdutoRequest request) {
-        service.execute(request.getList(), request.isExcluirRegistros());
+    public void inserir(@RequestHeader(name = "x-primeira-exportacao") boolean primeiraExportacao,
+                        @RequestHeader(name = "x-excluir-registros") boolean excluirRegistros,
+                        @RequestBody List<Produto> request) {
+        service.inserir(request, primeiraExportacao, excluirRegistros);
     }
 
-    @PostMapping("/atualizar")
-    @ResponseStatus(value = HttpStatus.OK)
-    public void atualizar(@RequestBody List<ProdutoInfo> request) {
-        atualizarProdutoService.execute(request);
+    @GetMapping
+    public List<Produto> recuperar(@RequestHeader(name = "x-codigo-empresa") int codigoEmpresa) {
+        return List.of();
     }
 }

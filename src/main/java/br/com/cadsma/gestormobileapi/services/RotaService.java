@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -17,6 +19,9 @@ public class RotaService {
 
     private final RotaRepository repository;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     public RotaService(RotaRepository repository) {
         this.repository = repository;
     }
@@ -24,8 +29,11 @@ public class RotaService {
     @Transactional
     public void inserir(List<Rota> list) {
         try {
-            if(list != null && list.size() > 0) {
-                this.repository.saveAll(list);
+            if(list != null && !list.isEmpty()) {
+                repository.deleteAllByCodigoEmpresa(Rota.ENTITY_NAME, list.get(0).getCodigoEmpresa(), entityManager);
+
+                for(var entity : list)
+                    entityManager.persist(entity);
             }
         }catch (Exception ex) {
             logger.error("RotaService >> inserir >> {}", ex.getMessage());
@@ -35,8 +43,7 @@ public class RotaService {
 
     public List<Rota> recuperar(int codigoEmpresa) {
         try {
-            return repository.findAllByCodigoEmpresaAndSituacaoAndExcluido(codigoEmpresa,
-                    SituacaoEnum.ATIVO.getCodigo(), ExclusaoEnum.NAO_EXCLUIDO.getCodigo());
+            return repository.findAllByCodigoEmpresa(codigoEmpresa);
         }catch (Exception ex) {
             logger.error("RotaService >> recuperar >> {}", ex.getMessage());
             throw ex;

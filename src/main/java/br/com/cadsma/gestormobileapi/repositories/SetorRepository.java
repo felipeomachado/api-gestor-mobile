@@ -12,5 +12,4 @@ import java.util.List;
 @Transactional
 @EnableTransactionManagement
 public interface SetorRepository extends MyJpaRepository<Setor, SetorPk> {
-    List<Setor> findAllByCodigoEmpresaAndSituacaoAndExcluido(int codigoEmpresa, int situacao, int excluido);
 }

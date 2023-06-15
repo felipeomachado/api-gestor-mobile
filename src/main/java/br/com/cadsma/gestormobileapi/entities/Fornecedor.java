@@ -8,9 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
-@Entity
+@Entity(name = Fornecedor.ENTITY_NAME)
 @IdClass(FornecedorPk.class)
 public class Fornecedor {
+
+    public static final String ENTITY_NAME = "FORNECEDOR";
     @Id
     @Column(name = "EMPRESA_CODIGO", nullable = false)
     @JsonProperty("EMPRESA_CODIGO")
